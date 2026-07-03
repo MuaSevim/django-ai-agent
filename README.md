@@ -187,19 +187,21 @@ pip install -r requirements.txt
 
 # 🔑 Environment Configuration
 
-Create a `.env` file inside the **src/** directory.
+Copy the `.env.example` file to create your `.env` configuration:
 
-```
-src/
- └── .env
+```bash
+cp .env.example .env
 ```
 
-Example configuration:
+Then edit `.env` with your API keys:
 
 ```
 OPENAI_API_KEY="your_openai_key"
 TMDB_API_KEY="your_tmdb_key"
 PERMIT_API_KEY="your_permit_key"
+PERMIT_PDP_URL="https://cloudpdp.api.permit.io"
+SECRET_KEY="your-secret-key-here"
+DEBUG=True
 ```
 
 Environment variables are loaded using **python-decouple**.

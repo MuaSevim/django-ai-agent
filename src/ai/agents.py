@@ -1,3 +1,13 @@
+"""
+AI Agent definitions for the Django AI Agent system.
+
+This module provides factory functions to create specialized LangGraph ReAct agents
+for different use cases:
+- Document management agent: Create, retrieve, search, and delete documents
+- Movie discovery agent: Query and discover movies via TMDB API
+
+Each agent is configured with specific tools and prompts tailored to its purpose.
+"""
 from langgraph.prebuilt import create_react_agent
 
 from ai.llms import get_openai_model
@@ -7,6 +17,16 @@ from ai.tools import (
 )
 
 def get_document_agent(model=None, checkpointer=None):
+    """
+    Create a ReAct agent specialized in document management operations.
+
+    Args:
+        model: Optional LLM model specification. Defaults to gpt-4o-mini.
+        checkpointer: Optional checkpointer for conversation state persistence.
+
+    Returns:
+        A LangGraph ReAct agent configured with document management tools.
+    """
     llm_model = get_openai_model(model=model)
 
     agent = create_react_agent(
@@ -20,6 +40,16 @@ def get_document_agent(model=None, checkpointer=None):
 
 
 def get_movie_discovery_agent(model=None, checkpointer=None):
+    """
+    Create a ReAct agent specialized in movie discovery via TMDB API.
+
+    Args:
+        model: Optional LLM model specification. Defaults to gpt-4o-mini.
+        checkpointer: Optional checkpointer for conversation state persistence.
+
+    Returns:
+        A LangGraph ReAct agent configured with movie discovery tools.
+    """
     llm_model = get_openai_model(model=model)
 
     agent = create_react_agent(

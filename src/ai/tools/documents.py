@@ -1,3 +1,17 @@
+"""
+Document management tools for the AI agent system.
+
+This module provides LangChain tools for CRUD operations on user documents,
+with built-in Permit.io integration for role-based access control.
+
+Tools:
+- search_query_documents: Search documents by title/content
+- list_documents: List recent documents for the user
+- get_document: Retrieve a specific document
+- create_document: Create a new document
+- update_document: Modify an existing document
+- delete_document: Delete a document
+"""
 from asgiref.sync import async_to_sync
 
 from langchain_core.runnables import RunnableConfig
